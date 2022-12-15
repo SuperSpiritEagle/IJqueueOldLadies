@@ -6,13 +6,20 @@ namespace IJqueueOldLadies
     {
         static void Main(string[] args)
         {
-            const int receptionTime = 10;
+            int receptionTime = 10;
+            int minutesHour = 60;
             int countPeople;
+            int hours;
+            int minutes;
             Console.WriteLine("Введите количество человек в очереди");
             countPeople = Convert.ToInt32(Console.ReadLine());
             countPeople *= receptionTime;
-            var queueTime = TimeSpan.FromMinutes(countPeople);
-            Console.WriteLine($"Вы должны отстоять в очереди {queueTime}");
+            minutes = countPeople;
+            countPeople /= minutesHour;
+            hours = countPeople;
+            countPeople *= minutesHour;
+            minutes -= countPeople;
+            Console.WriteLine($"Вы должны отстоять в очереди {hours} часа : {minutes} минут");
         }
     }
 }
